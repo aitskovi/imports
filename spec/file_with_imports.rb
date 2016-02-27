@@ -1,4 +1,4 @@
-A = Imports.import 'basic_file.rb'
+A = import 'basic_file.rb'
 
 class B
   def test
@@ -6,4 +6,4 @@ class B
   end
 end
 
-Imports.export B
+export B

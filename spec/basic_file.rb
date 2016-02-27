@@ -4,4 +4,4 @@ class A
   end
 end
 
-Imports.export A
+export A
