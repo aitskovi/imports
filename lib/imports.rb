@@ -6,11 +6,9 @@ require "imports/version"
 ::IMPORTS_MODULES = {}
 ::IMPORTS_ANONYMOUS_MODULES = {}
 
-def import(path)
+def crazy_import(path)
   base_path = caller_locations.first.absolute_path
   absolute_path = File.expand_path(path, "#{base_path}/..")
-
-  puts '#{base_path} is importing #{path}'
 
   unless ::IMPORTS_MODULES.include?(absolute_path)
     # Load the imported module, it'll register itself with the exports.
@@ -20,10 +18,8 @@ def import(path)
   ::IMPORTS_MODULES[absolute_path]
 end
 
-def export(objects)
+def crazy_export(objects)
   absolute_path = caller_locations.first.absolute_path
-
-  puts '#{absolute_path} is exporting #{objects}'
 
   if ::IMPORTS_MODULES[absolute_path]
     raise RuntimeError.new('Doubly imported file')

@@ -4,4 +4,4 @@ class A
   end
 end
 
-export A
+crazy_export A

@@ -1,4 +1,4 @@
-A = import 'basic_file.rb'
+A = crazy_import 'basic_file.rb'
 
 class B
   def test
@@ -6,4 +6,4 @@ class B
   end
 end
 
-export B
+crazy_export B
