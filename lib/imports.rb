@@ -6,6 +6,7 @@ unless defined? ::IMPORTS_MODULES
 #TODO: Deal with circular dependancies
 
 ::IMPORTS_MODULES = {}
+::IMPORTS_ANONYMOUS_MODULES = {}
 
 def import(path)
   base_path = caller_locations.first.absolute_path
@@ -26,6 +27,7 @@ def export(objects)
     raise RuntimeError.new('Doubly imported file')
   end
 
+  ::IMPORTS_ANONYMOUS_MODULES[absolute_path] = self
   ::IMPORTS_MODULES[absolute_path] = objects
 end
 
